@@ -1,0 +1,107 @@
+@use "variaveis.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: variaveis.$font-family;
+}
+
+body {
+    background-color: variaveis.$bg-color;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: variaveis.$container-max;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: variaveis.$header-bg;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: variaveis.$padding-header;
+    }
+}
+
+.menu {
+    display: flex;
+
+    li {
+        font-weight: bold;
+        margin-left: variaveis.$margin-menu-li;
+
+        a {
+            color: variaveis.$text-color;
+            text-decoration: none;
+        }
+    }
+}
+
+section {
+    padding: variaveis.$padding-section;
+}
+
+.products {
+    margin-top: variaveis.$margin-products-top;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: 1%;
+    row-gap: 4%;
+    width: 100%;
+}
+
+.product-item {
+    img {
+        width: 100%;
+        border-radius: variaveis.$border-radius;
+    }
+}
+
+.product-button {
+    display: block;
+    background-color: variaveis.$button-bg;
+    color: variaveis.$text-color;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: variaveis.$button-radius;
+    margin-top: 8px;
+    text-decoration: none;
+
+    &:hover {
+        background-color: variaveis.$button-bg-hover;
+    }
+}
+
+// Responsividade usando @media diretamente
+@media screen and (max-width: 1023px) {
+    .container {
+        max-width: variaveis.$container-max-tablet;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .products {
+        display: block;
+    }
+
+    .product-item {
+        margin-bottom: variaveis.$margin-product-bottom;
+    }
+}
